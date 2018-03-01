@@ -216,7 +216,6 @@ public void KZTimer_TimerStarted(int client)
 
 public void KZTimer_TimerStopped(int client, int teleports, float time, bool record) 
 {
-	record = true;
 	if (record) 
 	{
 		SaveRecording(client, teleports, time);
