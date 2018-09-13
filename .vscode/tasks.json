@@ -1,0 +1,27 @@
+{
+
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile plugin",
+            "type": "shell",
+            "presentation": {
+                "panel": "new"
+            },
+            "windows": {
+                "command": "C:\\SourceMod1.9\\addons\\sourcemod\\scripting\\spcomp.exe",
+                "args": [
+                    "${file}",
+                    "-iC:\\SourceMod1.9\\addons\\sourcemod\\scripting\\include",
+                    "-i${workspaceFolder}\\addons\\sourcemod\\scripting\\include",
+                    "-oF:\\Servers\\KZTimer\\csgo\\addons\\sourcemod\\plugins\\${fileBasenameNoExtension}.smx"
+                ]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
