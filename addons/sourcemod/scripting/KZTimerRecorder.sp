@@ -3,7 +3,7 @@
 #pragma semicolon 1
 
 #define PLUGIN_AUTHOR "Ruto"
-#define PLUGIN_VERSION "0.01"
+#define PLUGIN_VERSION "0.03"
 
 #define TICK_DATA_BLOCKSIZE 7
 #define REPLAY_MAGIC_NUMBER 0x676F6B7A // 0x7275746F6B7A :(
