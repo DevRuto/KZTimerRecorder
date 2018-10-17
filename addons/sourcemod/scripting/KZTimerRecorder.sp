@@ -3,7 +3,7 @@
 #pragma semicolon 1
 
 #define PLUGIN_AUTHOR "Ruto"
-#define PLUGIN_VERSION "0.02"
+#define PLUGIN_VERSION "0.05"
 
 #define TICK_DATA_BLOCKSIZE 7
 #define REPLAY_MAGIC_NUMBER 0x676F6B7A // 0x7275746F6B7A :(
@@ -120,7 +120,8 @@ bool SaveRecording(int client, int teleports, float time)
 	// Prepare more data
 	char steamID2[24], ip[16], alias[MAX_NAME_LENGTH];
 	GetClientAuthId(client, AuthId_Steam2, steamID2, sizeof(steamID2));
-	GetClientIP(client, ip, sizeof(ip));
+	//GetClientIP(client, ip, sizeof(ip));
+	ip = "0.0.0.0";
 	GetClientName(client, alias, sizeof(alias));
 	int tickCount = g_tickData[client].Length;
 	
@@ -162,7 +163,7 @@ bool SaveRecording(int client, int teleports, float time)
 }
 
 /* 
-	EVENT HANDLERS 
+	EVENT HANDLERS
 */
 
 // REFERENCE: https://bitbucket.org/kztimerglobalteam/gokz/src/3b49c655ec18631939d69ce64b511a90e560f5a7/addons/sourcemod/scripting/gokz-replays/recording.sp?at=master&fileviewer=file-view-default#recording.sp-227
@@ -251,7 +252,8 @@ public void OnClientDisconnect(int client)
 /* 
 	COMMAND HANDLERS
 */
-public Action Command_Version(int client, int args) {
+public Action Command_Version(int client, int args) 
+{
 	ReplyToCommand(client, "Ruto KZTimer Recorder Version %s", PLUGIN_VERSION);
 	return Plugin_Handled;
 }
