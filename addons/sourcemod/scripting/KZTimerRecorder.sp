@@ -103,8 +103,8 @@ bool SaveRecording(int client, int teleports, float time)
 	// Setup file path and file
 	char path[PLATFORM_MAX_PATH];
 	BuildPath(Path_SM, path, sizeof(path), 
-		"%s/%s/%d_%s_%s_%s.%s", 
-		REPLAY_DIRECTORY, g_sMapName, course, "KZT", "NRM", isPro ? "PRO" : "NUB", "replay");
+		"%s/%s/%d_%s_%s_%s_%i.%s", 
+		REPLAY_DIRECTORY, g_sMapName, course, "KZT", "NRM", isPro ? "PRO" : "NUB", GetTime(), "replay");
 	if (FileExists(path))
 	{
 		DeleteFile(path);
@@ -218,8 +218,8 @@ public void KZTimer_TimerStopped(int client, int teleports, float time, bool rec
 {
 	if (record) 
 	{
-		PrintToConsole(client, "[RRC] Replay saved for %s in KZTimer mode", g_sMapName);
 		SaveRecording(client, teleports, time);
+		PrintToConsole(client, "[RRC] Replay saved for %s in KZTimer mode", g_sMapName);
 	}
 	StopRecording(client);
 }
